@@ -1,0 +1,36 @@
+= HAProxy
+
+image::https://www.plantuml.com/plantuml/png/dPB1RjD048Rl-nHRSm0aRCUseA6gef9KwOK3Ka2zzBAn9_4gwrbhTarQ8Gw4Dq6SkVIH_2Ai7JTo5FVIItRc_qVVFvhuobX1jYeKCnk9fI1HS9EBJ6ybhlbAA0EiPn6aLk1QmUNbzs8ouJyOvwGhp6QQ48Z7xvsmr9G1pRJIn5_Du_FPwBnHHRfPxsSxPpwT9NFdh3JQlNQRImjEcRQ4hxbCDmZ6y8Jzx2s1EdFvk9PutwtGJxmMjBaX01p8_2mBwBoJrDE4N9Iaxn-UoPYg2WOYhW7AnUQXSGT363lSa7jgUOVHnpY8Feo3A8X67k_TjLc2UzqITpWUNOpTG7yjONZNE72VAyeoEY970-JsW0ttG6wLFRSj8uSzfiP7rFX5rFY4cXnHanTHa-O4h_cdsqNzwr-z-rFl_jQxn_ht8plBO2KH6kjBLIYUMrkQYp0aiGtMqkRLiZ90gKOBQ8DK5w7O6YMMfdbzwGpZhpJvfH9e7I0iXB50OIQDPMSIKrLbK95w2WZTEzD5eJ4eNSkUcrd8ebHo9I5hvmR7RW21X0g_6I3JuThwJTNylkDUstckyDuorehS9-bF3bz6zt8_qqxj_jS1CHuI4tO5cBdO_m00[]
+
+=== Setup
+
+----
+$ make up
+$ make nginx
+$ make lb
+----
+
+=== テスト
+
+----
+$ make test
+curl --silent 192.168.1.10 | grep "h1" && sleep 0.5
+<h1>APP 3</h1>
+curl --silent 192.168.1.10 | grep "h1" && sleep 0.5
+<h1>APP 1</h1>
+curl --silent 192.168.1.10 | grep "h1" && sleep 0.5
+<h1>APP 2</h1>
+curl --silent 192.168.1.10 | grep "h1" && sleep 0.5
+<h1>APP 3</h1>
+curl --silent 192.168.1.10 | grep "h1" && sleep 0.5
+<h1>APP 1</h1>
+curl --silent 192.168.1.10 | grep "h1"
+<h1>APP 2</h1>
+----
+
+=== 片付け
+
+----
+$ make halt
+$ make destroy
+----

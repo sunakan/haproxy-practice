@@ -1,0 +1,50 @@
+@startuml
+skinparam shadowing false
+
+skinparam rectangle<<vm>> {
+  roundCorner 25
+  borderColor #F27C07
+  backgroundColor #FFBC3F
+  fontColor White
+  BorderThickness 3
+}
+skinparam node<<nginx>> {
+  borderColor DarkGreen
+  backgroundColor LimeGreen
+  fontColor White
+}
+skinparam node<<haproxy>> {
+  borderColor DarkBlue
+  backgroundColor DeepSkyBlue
+  fontColor White
+}
+
+
+rectangle "lb\n192.168.1.10" <<vm>> {
+  node "haproxy\n80:80" <<haproxy>> as haproxy
+}
+
+rectangle "app1\n192.168.1.11" <<vm>> {
+  node "nginx\n8080:80" <<nginx>> as nginx1
+}
+rectangle "app2\n192.168.1.12" <<vm>> {
+  node "nginx\n8080:80" <<nginx>> as nginx2
+}
+rectangle "app3\n192.168.1.13" <<vm>> {
+  node "nginx\n8080:80" <<nginx>> as nginx3
+}
+
+' AWSのアイコン
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+
+!includeurl AWSPuml/AWSSimplified.puml
+!includeurl AWSPuml/General/Users.puml
+
+Users(users, "Users", "")
+
+users -ri-> haproxy
+haproxy -do-> nginx1
+haproxy -do-> nginx2
+haproxy -do-> nginx3
+@enduml
