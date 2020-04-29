@@ -1,5 +1,12 @@
 = HAProxy
 
+=== 必要なソフトウェア
+
+- Vagrant
+- VirtualBox
+
+=== 図
+
 image::http://www.plantuml.com/plantuml/png/dPAnRjim48PtFWMZ3cs1Ih8aj762m4Zjm5aw572BB5beyMmH9ey2ITK9YWvrtwJet2MFv1SfHQk1Z2XBD8Yy_pzy_-6aI-kOSOsIn6u4rimmHMt5kDuANDCLanP8pp9GEePh2HSNtzHaGhyJIerkaC-qGJ0qV--5fJOSp4nBRUYhUNuw6vssAYitwqDlvyodisBkdPL6Tz1kAk70AzD0-5A9SeDWBIt8ZzuGgBdFnxN0ksw4Vk8LCvjh0u03cP-4Wk0zJHr8g5XjzDtzCnbJsS10n1L0lTZS1tSeX9377T98BcynEykJxCCuoP9i5D7UNb5ptz8DSOlZqVcPVoBQ7unPsXKUtIUpkiwEsDa0Ewom9NlsE8G7vS0DrynZZwdv4JL_4JL_GYsEgCMBg4MxWjVquyrY__FlVlTxl_kptptiVpsG4muhWT1QdnibQULSRS_JrB1jiXQkQfQD1LDgT80kARLAsTPAjhJj6Gjls7YbJLnBXiu3KiMi0vDoOHqv4LZAXaDZvF-0r9yphPJ6fFObUQvd8LGjnKe03ts3RTU0O9XClremjiE5-vkcVR-ZKQWYVudU4X946XiHJnx_ZEwaCTTUxRxhW9WFYGMv1EG-zXy0[]
 
 === Setup
@@ -11,6 +18,10 @@ $ make lb
 ----
 
 === テスト
+
+ブラウザでhttp://192.168.1.10へアクセス（更新連打）
+
+or
 
 ----
 $ make test
