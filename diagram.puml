@@ -21,7 +21,7 @@ skinparam node<<haproxy>> {
 
 
 rectangle "lb\n192.168.1.10" <<vm>> {
-  node "haproxy\n80:80" <<haproxy>> as haproxy
+  node "haproxy\n80:9999" <<haproxy>> as haproxy
 }
 
 rectangle "app1\n192.168.1.11" <<vm>> {
